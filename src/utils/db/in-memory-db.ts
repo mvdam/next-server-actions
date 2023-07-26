@@ -1,17 +1,23 @@
-type DummyDb = {
-  contactForms: any[];
-};
+type ContactForm = {
+  name: string
+  email: string
+  message: string
+}
 
-export const dummyDb: DummyDb = { contactForms: [] };
+type DummyDb = {
+  contactForms: ContactForm[]
+}
+
+let dummyDb: DummyDb = { contactForms: [] }
 
 // fake Promise to simulate async call
 export const saveContactFormToDb = async (
-  contactForm: PushSubscription
+  contactForm: ContactForm
 ): Promise<DummyDb> => {
-  dummyDb.contactForms.push(contactForm);
-  return Promise.resolve(dummyDb);
-};
+  dummyDb.contactForms.push(contactForm)
+  return Promise.resolve(dummyDb)
+}
 
 export const getContactFormsFromDb = () => {
-  return Promise.resolve(dummyDb.contactForms);
-};
+  return Promise.resolve(dummyDb.contactForms)
+}

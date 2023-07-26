@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { dummyDb } from '@/utils/db/in-memory-db'
+import { getContactFormsFromDb } from '@/utils/db/in-memory-db'
 
-export function GET(_: NextRequest) {
-  return NextResponse.json(dummyDb)
+export async function GET(_: NextRequest) {
+  return NextResponse.json(await getContactFormsFromDb())
 }

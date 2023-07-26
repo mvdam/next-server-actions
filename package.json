@@ -6,9 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "d:build": "docker build -t next-server-actions .",
+    "d:run": "docker run -p 3000:3000 next-server-actions",
+    "d:start": "yarn d:build && yarn d:run"
   },
   "dependencies": {
+    "@prisma/client": "^5.0.0",
     "@types/node": "20.4.2",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
@@ -26,5 +30,8 @@
     "tabWidth": 2,
     "semi": false,
     "singleQuote": true
+  },
+  "devDependencies": {
+    "prisma": "^5.0.0"
   }
 }
